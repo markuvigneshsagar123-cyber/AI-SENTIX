@@ -58,7 +58,7 @@
   }
   
   button, a, [role="button"], .cursor-pointer, .luxury-card {
-    cursor: pointer !important;
+    cursor: pointer;
   }
 }
 
