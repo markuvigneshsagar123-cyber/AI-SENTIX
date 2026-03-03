@@ -1,0 +1,5 @@
+{
+  "name": "Sentix: AI Stock Market Analyst (India)",
+  "description": "Real-time Indian stock market analysis and prediction using AI-driven sentiment analysis of news, social media, and technical chart image analysis for NSE/BSE stocks.",
+  "requestFramePermissions": []
+}

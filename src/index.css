@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@300;400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-luxury-bg: #050505;
+  --color-luxury-card: #0A0A0A;
+  --color-luxury-border: rgba(255, 255, 255, 0.08);
+  --color-luxury-accent: #D4AF37; /* Gold accent */
+}
+
+[data-theme='light'] {
+  --color-luxury-bg: #ffffff;
+  --color-luxury-card: #f8f9fa;
+  --color-luxury-border: rgba(0, 0, 0, 0.1);
+  --color-luxury-accent: #1a1a1a;
+  color: #000000;
+}
+
+[data-theme='light'] body {
+  color: #000000 !important;
+}
+
+[data-theme='light'] .text-white { color: #000000 !important; }
+[data-theme='light'] .text-white\/90 { color: rgba(0, 0, 0, 0.9) !important; }
+[data-theme='light'] .text-white\/80 { color: rgba(0, 0, 0, 0.8) !important; }
+[data-theme='light'] .text-white\/70 { color: rgba(0, 0, 0, 0.7) !important; }
+[data-theme='light'] .text-white\/60 { color: rgba(0, 0, 0, 0.6) !important; }
+[data-theme='light'] .text-white\/50 { color: rgba(0, 0, 0, 0.5) !important; }
+[data-theme='light'] .text-white\/40 { color: rgba(0, 0, 0, 0.4) !important; }
+[data-theme='light'] .text-white\/30 { color: rgba(0, 0, 0, 0.3) !important; }
+[data-theme='light'] .text-white\/20 { color: rgba(0, 0, 0, 0.2) !important; }
+[data-theme='light'] .text-white\/10 { color: rgba(0, 0, 0, 0.1) !important; }
+[data-theme='light'] .text-white\/5 { color: rgba(0, 0, 0, 0.05) !important; }
+
+[data-theme='light'] .bg-white\/10 { background-color: rgba(0, 0, 0, 0.1) !important; }
+[data-theme='light'] .bg-white\/5 { background-color: rgba(0, 0, 0, 0.05) !important; }
+[data-theme='light'] .bg-white\/20 { background-color: rgba(0, 0, 0, 0.2) !important; }
+
+[data-theme='light'] .border-white\/10 { border-color: rgba(0, 0, 0, 0.1) !important; }
+[data-theme='light'] .border-white\/5 { border-color: rgba(0, 0, 0, 0.05) !important; }
+[data-theme='light'] .border-white\/20 { border-color: rgba(0, 0, 0, 0.2) !important; }
+
+[data-theme='light'] .luxury-label {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+  
+  body {
+    @apply bg-luxury-bg text-white antialiased transition-colors duration-300 text-base;
+  }
+  
+  button, a, [role="button"], .cursor-pointer, .luxury-card {
+    cursor: pointer !important;
+  }
+}
+
+.luxury-card {
+  @apply bg-luxury-card border border-luxury-border rounded-none backdrop-blur-md transition-all duration-500;
+}
+
+.luxury-card:hover {
+  @apply border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.03)];
+}
+
+@keyframes pulse-glow {
+  0%, 100% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+  50% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(212, 175, 55, 0.2); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.animate-shake {
+  animation: shake 0.2s ease-in-out 0s 2;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 60s linear infinite;
+}
+
+.glow-text {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.gold-glow {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+@keyframes slow-pan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.premium-bg {
+  background: radial-gradient(circle at 50% -20%, rgba(255,255,255,0.05) 0%, transparent 50%),
+              radial-gradient(circle at 0% 100%, rgba(212,175,55,0.02) 0%, transparent 40%);
+}
+
+.luxury-label {
+  @apply text-[11px] uppercase tracking-[0.3em] font-semibold opacity-60;
+}
+
+.luxury-input {
+  @apply bg-transparent border-b border-luxury-border py-3 focus:border-luxury-accent focus:outline-none transition-colors font-normal;
+}
+
+.luxury-button {
+  @apply border border-luxury-border px-10 py-3 text-[13px] uppercase tracking-[0.15em] hover:bg-white hover:text-black transition-all duration-300 font-medium;
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.2);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 9999;
+  mix-blend-mode: screen;
+}
+
+.cursor-dot {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--luxury-accent);
+  border-radius: 50%;
+  z-index: 10000;
+  box-shadow: 0 0 15px var(--luxury-accent), 0 0 30px var(--luxury-accent);
+}
+
+.cursor-trail {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 50%;
+  z-index: 9998;
+  transition: transform 0.15s ease-out;
+}
+
+.prose {
+  @apply text-white/80 leading-relaxed font-normal text-base;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  @apply font-serif italic text-white mt-6 mb-3;
+}
