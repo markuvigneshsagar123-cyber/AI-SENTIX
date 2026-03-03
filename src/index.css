@@ -58,7 +58,7 @@
   }
   
   button, a, [role="button"], .cursor-pointer, .luxury-card {
-    cursor: pointer;
+    cursor: pointer
   }
 }
 
@@ -197,3 +197,4 @@
 .prose h1, .prose h2, .prose h3 {
   @apply font-serif italic text-white mt-6 mb-3;
 }
+
